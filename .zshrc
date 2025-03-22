@@ -16,7 +16,7 @@ bindkey -v
 #colors?
 #git stuff provided by chatgpt
 autoload -U colors && colors
-PS1='%F{blue}%n%F{white}@%F{gray}%m%B%F{magenta}%~%b%F{green}-> %f'
+PS1='%F{blue}%n%F{white}@%F{gray}%m%B%F{magenta}%~%b%F{green} > %f'
 #history for multiple terminals
 setopt inc_append_history
 setopt share_history

@@ -47,7 +47,27 @@ return{
 				cmd = {
 					"clangd",
 					"--compile-commands-dir=build",  -- Set the directory containing compile_commands.json
-				}}
+				}
+			}
+
+			require'lspconfig'.texlab.setup{
+				settings = {
+					texlab = {
+						build = {
+							executable = "latexmk",  -- You can use latexmk or other build tools
+							args = { "-synctex=1", "-interaction=nonstopmode", "%f" }
+						},
+						forwardSearch = {
+							executable = "zathura",  -- Replace with your preferred PDF viewer
+							args = { "--synctex-forward", "%l:1:%f", "%p" }
+						},
+						chktex = {
+							enable = true  -- Enable chktex integration for linting
+						}
+					}
+				}
+			}
+
 				local cmp = require('cmp')
 
 				cmp.setup({
